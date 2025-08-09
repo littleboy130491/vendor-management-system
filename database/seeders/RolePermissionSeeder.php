@@ -16,10 +16,10 @@ class RolePermissionSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         // Create roles
-        $superAdmin = Role::create(['name' => 'super_admin']);
-        $procurementOfficer = Role::create(['name' => 'procurement_officer']);
-        $financeOfficer = Role::create(['name' => 'finance_officer']);
-        $vendor = Role::create(['name' => 'vendor']);
+        $superAdmin = Role::firstOrCreate(['name' => 'super_admin']);
+        $procurementOfficer = Role::firstOrCreate(['name' => 'procurement_officer']);
+        $financeOfficer = Role::firstOrCreate(['name' => 'finance_officer']);
+        $vendor = Role::firstOrCreate(['name' => 'vendor']);
 
         // Create permissions
         $permissions = [
@@ -41,7 +41,7 @@ class RolePermissionSeeder extends Seeder
         ];
 
         foreach ($permissions as $permission) {
-            Permission::create(['name' => $permission]);
+            Permission::firstOrCreate(['name' => $permission]);
         }
 
         // Assign all permissions to super_admin
@@ -61,13 +61,17 @@ class RolePermissionSeeder extends Seeder
         ]);
 
         // Create super admin user
-        $user = User::create([
-            'name' => 'Super Admin',
-            'email' => 'webmaster.imajiner@gmail.com',
-            'password' => Hash::make('L!ttleboy13Li'),
-        ]);
+        $user = User::firstOrCreate(
+            ['email' => 'webmaster.imajiner@gmail.com'],
+            [
+                'name' => 'Super Admin',
+                'password' => Hash::make('L!ttleboy13Li'),
+            ]
+        );
 
-        $user->assignRole('super_admin');
+        if (!$user->hasRole('super_admin')) {
+            $user->assignRole('super_admin');
+        }
         
         $this->command->info('Roles and permissions seeded successfully!');
         $this->command->info('Super Admin created with email: webmaster.imajiner@gmail.com');
