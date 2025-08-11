@@ -26,7 +26,7 @@ class ContractResource extends Resource
                 Forms\Components\TextInput::make('contract_number')
                     ->required(),
                 Forms\Components\Select::make('vendor_id')
-                    ->relationship('vendor', 'business_name')
+                    ->relationship('vendor', 'company_name')
                     ->required()
                     ->searchable()
                     ->preload(),

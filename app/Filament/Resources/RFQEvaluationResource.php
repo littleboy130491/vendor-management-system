@@ -29,7 +29,7 @@ class RFQEvaluationResource extends Resource
                         Forms\Components\Select::make('rfq_response_id')
                             ->label('RFQ Response')
                             ->relationship('response', 'id')
-                            ->getOptionLabelFromRecordUsing(fn ($record) => "{$record->vendor->business_name} - {$record->rfq->title}")
+                            ->getOptionLabelFromRecordUsing(fn ($record) => "{$record->vendor->company_name} - {$record->rfq->title}")
                             ->required()
                             ->searchable()
                             ->preload(),
@@ -66,7 +66,7 @@ class RFQEvaluationResource extends Resource
                     ->searchable()
                     ->sortable()
                     ->limit(30),
-                Tables\Columns\TextColumn::make('response.vendor.business_name')
+                Tables\Columns\TextColumn::make('response.vendor.company_name')
                     ->label('Vendor')
                     ->searchable()
                     ->sortable(),

@@ -28,11 +28,11 @@ class VendorsRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('vendor.company_name')
+            ->recordTitleAttribute('company_name')
             ->columns([
-                Tables\Columns\TextColumn::make('vendor.company_name')
+                Tables\Columns\TextColumn::make('company_name')
                     ->label('Vendor'),
-                Tables\Columns\TextColumn::make('vendor.contact_email')
+                Tables\Columns\TextColumn::make('contact_email')
                     ->label('Email'),
                 Tables\Columns\BadgeColumn::make('pivot.status')
                     ->label('Status')
