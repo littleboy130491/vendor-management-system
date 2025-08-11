@@ -29,4 +29,10 @@ class RFQEvaluation extends Model
     {
         return $this->belongsTo(User::class, 'evaluator_id');
     }
+
+    // Helper relationship to access RFQ through response
+    public function rfq()
+    {
+        return $this->hasOneThrough(RFQ::class, RFQResponse::class, 'id', 'id', 'rfq_response_id', 'rfq_id');
+    }
 }
