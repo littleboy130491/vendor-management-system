@@ -19,13 +19,13 @@ class RolePermissionTest extends TestCase
         // Create basic roles and permissions for testing
         $this->app[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
         
-        Role::create(['name' => 'super_admin']);
-        Role::create(['name' => 'procurement_officer']);
-        Role::create(['name' => 'finance_officer']);
-        Role::create(['name' => 'vendor']);
+        Role::firstOrCreate(['name' => 'super_admin']);
+        Role::firstOrCreate(['name' => 'procurement_officer']);
+        Role::firstOrCreate(['name' => 'finance_officer']);
+        Role::firstOrCreate(['name' => 'vendor']);
         
-        Permission::create(['name' => 'view_any_user']);
-        Permission::create(['name' => 'create_user']);
+        Permission::firstOrCreate(['name' => 'view_any_user']);
+        Permission::firstOrCreate(['name' => 'create_user']);
     }
 
     public function test_super_admin_role_exists(): void

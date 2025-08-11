@@ -30,6 +30,8 @@ class RolePermissionSeeder extends Seeder
             'update_user',
             'delete_user',
             'delete_any_user',
+            // Vendor specific
+            'view_vendors',
             
             // Shield role/permission management
             'view_shield::role',

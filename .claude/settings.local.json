@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php artisan test:*)",
+      "Bash(where php)",
+      "Bash(C:Usersuser.configherdbinphp.bat artisan test)",
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan test)",
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan db:seed --class=VendorCategorySeeder)",
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan migrate:status)",
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan make:controller VendorRegistrationController)",
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan make:request VendorRegistrationRequest)",
+      "Bash(mkdir:*)",
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan make:notification VendorRegistrationReceived)",
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan make:notification VendorRegistrationAdminNotification)",
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan make:migration add_company_description_to_vendors_table --table=vendors)",
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan migrate)",
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan test --testsuite=Feature --filter=VendorSelfRegistrationTest::test_vendor_can_self_register)",
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan test --testsuite=Feature --filter=VendorSelfRegistrationTest)",
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan test --testsuite=Feature --filter=VendorFeatureTest)"
+    ],
+    "deny": []
+  }
+}

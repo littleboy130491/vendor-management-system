@@ -16,9 +16,9 @@ class AuthenticationTest extends TestCase
     {
         parent::setUp();
 
-        // Create super_admin role for testing
+        // Ensure super_admin role exists for testing without duplicates
         $this->app[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
-        Role::create(['name' => 'super_admin']);
+        Role::firstOrCreate(['name' => 'super_admin']);
     }
 
     public function test_admin_login_screen_can_be_rendered(): void
@@ -42,9 +42,8 @@ class AuthenticationTest extends TestCase
 
     public function test_super_admin_has_all_permissions(): void
     {
-        $user = User::factory()->create([
-            'email' => 'webmaster.imajiner@gmail.com',
-        ]);
+        // Create a fresh user and assign super_admin role (avoid conflicting seeded email)
+        $user = User::factory()->create();
 
         $role = Role::findByName('super_admin');
         $user->assignRole('super_admin');
