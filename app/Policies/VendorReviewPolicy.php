@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\Vendor;
+use App\Models\VendorReview;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class VendorPolicy
+class VendorReviewPolicy
 {
     use HandlesAuthorization;
 
@@ -15,15 +15,15 @@ class VendorPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_vendor');
+        return $user->can('view_any_vendor::review');
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Vendor $vendor): bool
+    public function view(User $user, VendorReview $vendorReview): bool
     {
-        return $user->can('view_vendor');
+        return $user->can('view_vendor::review');
     }
 
     /**
@@ -31,23 +31,23 @@ class VendorPolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create_vendor');
+        return $user->can('create_vendor::review');
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Vendor $vendor): bool
+    public function update(User $user, VendorReview $vendorReview): bool
     {
-        return $user->can('update_vendor');
+        return $user->can('update_vendor::review');
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Vendor $vendor): bool
+    public function delete(User $user, VendorReview $vendorReview): bool
     {
-        return $user->can('delete_vendor');
+        return $user->can('delete_vendor::review');
     }
 
     /**
@@ -55,15 +55,15 @@ class VendorPolicy
      */
     public function deleteAny(User $user): bool
     {
-        return $user->can('delete_any_vendor');
+        return $user->can('delete_any_vendor::review');
     }
 
     /**
      * Determine whether the user can permanently delete.
      */
-    public function forceDelete(User $user, Vendor $vendor): bool
+    public function forceDelete(User $user, VendorReview $vendorReview): bool
     {
-        return $user->can('force_delete_vendor');
+        return $user->can('force_delete_vendor::review');
     }
 
     /**
@@ -71,15 +71,15 @@ class VendorPolicy
      */
     public function forceDeleteAny(User $user): bool
     {
-        return $user->can('force_delete_any_vendor');
+        return $user->can('force_delete_any_vendor::review');
     }
 
     /**
      * Determine whether the user can restore.
      */
-    public function restore(User $user, Vendor $vendor): bool
+    public function restore(User $user, VendorReview $vendorReview): bool
     {
-        return $user->can('restore_vendor');
+        return $user->can('restore_vendor::review');
     }
 
     /**
@@ -87,15 +87,15 @@ class VendorPolicy
      */
     public function restoreAny(User $user): bool
     {
-        return $user->can('restore_any_vendor');
+        return $user->can('restore_any_vendor::review');
     }
 
     /**
      * Determine whether the user can replicate.
      */
-    public function replicate(User $user, Vendor $vendor): bool
+    public function replicate(User $user, VendorReview $vendorReview): bool
     {
-        return $user->can('replicate_vendor');
+        return $user->can('replicate_vendor::review');
     }
 
     /**
@@ -103,6 +103,6 @@ class VendorPolicy
      */
     public function reorder(User $user): bool
     {
-        return $user->can('reorder_vendor');
+        return $user->can('reorder_vendor::review');
     }
 }

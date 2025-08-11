@@ -16,7 +16,12 @@
       "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan migrate)",
       "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan test --testsuite=Feature --filter=VendorSelfRegistrationTest::test_vendor_can_self_register)",
       "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan test --testsuite=Feature --filter=VendorSelfRegistrationTest)",
-      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan test --testsuite=Feature --filter=VendorFeatureTest)"
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan test --testsuite=Feature --filter=VendorFeatureTest)",
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan make:filament-resource User --generate)",
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan test --testsuite=Feature --filter=AuthenticationTest)",
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan test --testsuite=Feature --filter=UserResourceTest)",
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan test --testsuite=Feature)",
+      "Bash(\"C:\\Users\\user\\.config\\herd\\bin\\php.bat\" artisan make:policy UserPolicy --model=User)"
     ],
     "deny": []
   }

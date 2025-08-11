@@ -50,7 +50,7 @@ class RFQ extends Model
 
     public function responses()
     {
-        return $this->hasMany(RFQResponse::class);
+        return $this->hasMany(RFQResponse::class, 'rfq_id');
     }
 
     public function respondedVendors()
